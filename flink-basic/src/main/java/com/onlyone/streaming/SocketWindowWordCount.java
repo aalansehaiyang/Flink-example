@@ -12,6 +12,7 @@ import org.apache.flink.util.Collector;
  * @Author onlyone
  */
 public class SocketWindowWordCount {
+
     public static void main(String[] args) throws Exception {
 
         // the host and the port to connect to
@@ -21,7 +22,7 @@ public class SocketWindowWordCount {
             final ParameterTool params = ParameterTool.fromArgs(args);
             hostname = params.has("hostname") ? params.get("hostname") : "localhost";
 //            port = params.getInt("port");
-            port = 9200;
+            port = 9400;
         } catch (Exception e) {
             e.printStackTrace();
             return;
