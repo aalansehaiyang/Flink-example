@@ -10,7 +10,6 @@ import org.apache.flink.util.Collector;
 
 /**
  * @Author onlyone
- * @create 2020/8/21
  */
 public class SocketWindowWordCount {
     public static void main(String[] args) throws Exception {
