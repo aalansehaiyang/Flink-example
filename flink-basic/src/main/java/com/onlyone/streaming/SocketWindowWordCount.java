@@ -28,8 +28,8 @@ public class SocketWindowWordCount {
             return;
         }
 
-        // get the execution environment
-        final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+        //创建一个流式计算环境
+        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
         // 从socket套接字中获取数据流
         DataStream<String> text = env.socketTextStream(hostname, port, "\n");
@@ -47,7 +47,7 @@ public class SocketWindowWordCount {
                 })
 
                 .keyBy("word")  // 按照 word 字段聚合
-                .timeWindow(Time.seconds(60), Time.seconds(3))  // 数据时间窗口大小为2s，输出时间间隔为3s
+                .timeWindow(Time.seconds(60), Time.seconds(3))  // 数据时间窗口大小为60s，输出时间间隔为3s
 
                 .reduce(new ReduceFunction<WordWithCount>() {
                     @Override
@@ -56,7 +56,7 @@ public class SocketWindowWordCount {
                     }
                 });
 
-        // print the results with a single thread, rather than in parallel
+        // 用单线程打印结果
         windowCounts.print().setParallelism(1);
 
         env.execute("Socket Window WordCount");
