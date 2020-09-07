@@ -1,4 +1,4 @@
-package org.myorg.quickstart.Table05;
+package com.onlyone.Table05;
 
 import java.io.Serializable;
 
