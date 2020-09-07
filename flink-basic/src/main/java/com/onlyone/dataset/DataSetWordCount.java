@@ -21,7 +21,7 @@ public class DataSetWordCount {
         // 使用 fromElements 函数创建一个 DataSet 对象
         // 创建DataSet，这里我们的输入是一行一行的文本
         DataSet<String> text = env.fromElements(
-                "Flink Spark Storm",
+                "Fk Spark Storm",
                 "Flink Flink Flink",
                 "Spark Spark Spark",
                 "Storm Storm Storm");
