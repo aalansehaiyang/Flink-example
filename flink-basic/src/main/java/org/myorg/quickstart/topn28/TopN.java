@@ -44,8 +44,7 @@ public class TopN {
         //从最早开始消费
         consumer.setStartFromEarliest();
 
-        DataStream<String> stream = env
-                .addSource(consumer);
+        DataStream<String> stream = env.addSource(consumer);
 
         DataStream<OrderDetail> orderStream = stream.map(message -> JSON.parseObject(message, OrderDetail.class));
 
